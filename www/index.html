@@ -1,48 +1,60 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Notification Example</title>
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>any list scroller demo - jQuery scrolling plugin by musings.it to scroll any kind of list with any content - musings.it web design and development</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/CSSreset.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/als_demo.css" />
+		<link rel="icon"          href="images/favicon.ico" type="image/x-icon" />
+    	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<meta name="robots" content="index,follow" />
+		<meta name="keywords" content="jQuery plugin, jQuery scroller, list jQuery, jQuery lists, css3, html5, jQuery" />
+    	<meta name="description" content="any list scroller demo - jQuery scrolling plugin by musings.it to scroll any kind of list with any content - musings.it web design and development - Bergamo Italy" /> 	
+		<meta name="author" content="Federica Sibella - musings.it" />
+		<meta name="geo.placename" content="via Generale Alberico Albricci 1, 24128 Bergamo, Italy">
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.alsEN-1.0.min.js"></script>
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
 
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
 
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Empty
-    }
+		<script type="text/javascript">
+			$(document).ready(function() 
+			{
+				$("#lista2").als({
+					visible_items: 2,
+					scrolling_items: 1,
+					orientation: "vertical",
+					circular: "no",
+					autoscroll: "no"
+				});
+			});	
+		</script>
+	</head>
+	<body>
+		<section id="content">
 
-    // Show a custom alert
-    //
-    function showAlert() {
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
-    }
+			<div id="lista2" class="als-container">
+				<span class="als-prev"><img src="images/thin_top_arrow_333.png" alt="prev" title="previous" /></span>
+				<div class="als-viewport">
+					<div class="als-wrapper">
+						<input class="als-item" value="1"></input>
+						<input class="als-item" value="2"></input>
+						<input class="als-item" value="3"></input>
+						<input class="als-item" value="4"></input>
+						<input class="als-item" value="5"></input>
+						<input class="als-item" value="6"></input>
+						<input class="als-item" value="7"></input>
+						<input class="als-item" value="8"></input>
+						<input class="als-item" value="9"></input>
+						<input class="als-item" value="10"></input>
+						<input class="als-item" value="11"></input>
+						<input class="als-item" value="12"></input>
+					</div>
+					<div id="cover"></div>
+				</div>
+				<span class="als-next"><img src="images/thin_bottom_arrow_333.png" alt="next" title="next" /></span>
+			</div>
+		</section>
 
-    // Beep three times
-    //
-    function playBeep() {
-        navigator.notification.beep(3);
-    }
-
-    // Vibrate for 2 seconds
-    //
-    function vibrate() {
-        navigator.notification.vibrate(2000);
-    }
-
-    </script>
-  </head>
-  <body>
-    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
-    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
-    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
-  </body>
+	</body>
 </html>
