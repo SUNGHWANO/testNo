@@ -1,53 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+<!-- <script type="text/javascript" src="cordova.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>
+<script type="text/javascript" src="js/loadSelectedIcon.js"></script>
+<script type="text/javascript" src="js/cs_drag_sql.js"></script>
 
-<!DOCTYPE html> 
-<html> 
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
-	<title>jQuery Mobile Docs - Transitions</title> 
-	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />  
-	<link rel="stylesheet" href="jqm-docs.css"/>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
-</head> 
-<body> 
+<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />  
+<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lineconStyle.css">
+<link rel="stylesheet" href="css/layout_font.css">
+<link rel="stylesheet" href="css/common_font.css">
 
-<div data-role="page">
 
-	<div data-role="header" data-theme="b">
-		<h1>Transitions</h1>
-		<a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-	</div><!-- /header -->
 
-	<div data-role="content">
-			
-		<h2>Page transitions</h2> 
-
-		<p>The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any object or page change event, which apply the chosen transition when navigating to a new page and the reverse transition for the Back button. By default, the framework applies the right to left slide transition.</p>
-
-		<p>To set a custom transition effect, add the <code>data-transition</code> attribute to the link. Possible values include: </p>
-
-<code><code>
-&lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
-</code></code>
-
-		<p>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="slide">slide</a>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="slideup">slideup</a>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="slidedown">slidedown</a>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="pop">pop</a>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="fade">fade</a>
-		<a href="transition-success.html" data-role="button" data-rel="dialog" data-transition="flip">flip</a>
-		</p>
+<title>Main</title>
+</head>
+<body>
+<div class="header" data-role="header"><p>MAIN PAGE</p></div>
+<section id="layout">
+	<section id="iconMainDiv">
+		<div id="start"><i class="fa fa-play"></i></div>
 		
-		<p>In addition, you can also force a "backwards" transition by specifying <code>data-direction="reverse"</code> on your link. Note: (this was formerly <code>data-back="true"</code>, which will remain supported until 1.0)</p>
-		
-		<div class="ui-body ui-body-e">
-			<p><strong>Transitions from <a href="http://www.jqtouch.com/">jQtouch</a></strong> (<em>with small modifications</em>): Built by David Kaneda and maintained by Jonathan Stark.</p>
+		<div id="middle"><!-- <i class="li li_tv"></i> 아이콘이 여기로 --></div>
+		<div data-role="page">
+		<div id="one" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain left top"></div>
+		<div id="two" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain center top"></div>
+		<div id="three" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain right top"></div>
+		<div id="four" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain left bottom"></div>
+		<div id="five" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain center bottom"></div>
+		<div id="six" data-role="button" data-rel="dialog" data-transition="pop" class="drag iconMain right bottom"></div>
 		</div>
-			
-	</div><!-- /content -->
-</div><!-- /page -->
+	  
+		<p id="timer"></p>
+		
+	</section>
+	<a class="resultLink" href="main_Setting_sql.html"><i class="fa fa-cog"></i></a>
+	<a id="resultLink" href="result_text_sql.html"><i  class="fa fa-list-ul"></i></a>
+</section>
 
+<p id="result"></p>
+
+<form id="form" name=clock>
+<input class="timerCount Min" name="txtMins" size="1" readonly>
+<input class="timerCount Sec" name="txtSecs" size="1" readonly>
+</form>
+
+
+<script type="text/javascript">
+var db = window.openDatabase("Database", "1.0", "LogDB", 2 * 1024 * 1024);
+
+db.transaction(function(tx) {
+	//tx.executeSql('drop table if exists ICONSTIME'); // DB 삭제 - 테스트 용
+});
+</script>
 </body>
 </html>
